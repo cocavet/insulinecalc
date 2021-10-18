@@ -1,16 +1,21 @@
+import { calcDailyNutritional } from "../../utils/nutritional";
+
 class User implements UserINT {
-    sex: boolean;
+    gender: boolean;
     age: number;
     height: number;
     weight: number;
     activity: ActivityENU;
 
-    constructor(sex: boolean, age: number, height: number, weight: number, activity: ActivityENU) {
-        this.sex = sex;
+    constructor(gender: boolean, age: number, height: number, weight: number, activity: ActivityENU) {
+        this.gender = gender;
         this.age = age;
         this.height = height;
         this.weight = weight;
         this.activity = activity;
+    }
+    getSGender(): boolean {
+        throw new Error("Method not implemented.");
     }
 
     setHeight(height: number): void {
@@ -21,12 +26,18 @@ class User implements UserINT {
         this.height = weight;
     }
 
-    getDailyNutritional(): number {
-        return calcDailyNutritional(this.sex, this.age, this.height, this.weight, this.activity);
+    getDailyNutritional(): NutritionalTYP {
+        return calcDailyNutritional({
+            gender: this.gender,
+            age: this.age,
+            height: this.height,
+            weight: this.weight,
+            activity: this.activity
+        });
     }
 
-    getSex(): boolean {
-        return this.sex;
+    getGender(): boolean {
+        return this.gender;
     }
 
     getAge(): number {

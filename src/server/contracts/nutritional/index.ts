@@ -1,5 +1,12 @@
 type NutritionalTYP = {
-    Red: number,
-    Green: number,
-    Blue: number,
+    Kcal
+    Proteins
+    Fats
+    CHO
+}
+
+type MacronutrientsTYP = {
+    Proteins
+    Fats
+    CHO
 }

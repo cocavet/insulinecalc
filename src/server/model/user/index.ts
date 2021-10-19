@@ -1,29 +1,29 @@
+import { GenderENU, ActivityENU, UserINT } from "../../contracts/user";
 import { calcDailyNutritional } from "../../utils/nutritional";
 
 class User implements UserINT {
-    gender: boolean;
+    id: number
+    gender: GenderENU;
     age: number;
     height: number;
     weight: number;
     activity: ActivityENU;
 
-    constructor(gender: boolean, age: number, height: number, weight: number, activity: ActivityENU) {
+    constructor(id: number, gender: GenderENU, age: number, height: number, weight: number, activity: ActivityENU) {
+        this.id = id;
         this.gender = gender;
         this.age = age;
         this.height = height;
         this.weight = weight;
         this.activity = activity;
     }
-    getSGender(): boolean {
-        throw new Error("Method not implemented.");
-    }
 
-    setHeight(height: number): void {
-        this.height = height;
+    setActivity(activity: ActivityENU): void {
+        this.activity = activity;
     }
 
     setWeight(weight: number): void {
-        this.height = weight;
+        this.weight = weight;
     }
 
     getDailyNutritional(): NutritionalTYP {
@@ -34,26 +34,6 @@ class User implements UserINT {
             weight: this.weight,
             activity: this.activity
         });
-    }
-
-    getGender(): boolean {
-        return this.gender;
-    }
-
-    getAge(): number {
-        return this.age;
-    }
-
-    getHeight(): number {
-        return this.height;
-    }
-
-    getWeight(): number {
-        return this.weight;
-    }
-
-    getActivity(): number {
-        throw new Error("Method not implemented.");
     }
 }
 

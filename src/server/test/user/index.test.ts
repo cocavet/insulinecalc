@@ -1,8 +1,18 @@
-import { GenderENU, ActivityENU } from "../../contracts/user";
-import User from "../../model/user";
+import { ActivityENU, GenderENU } from '../../contracts/user';
+import { newUser } from '../../factory';
+import User from '../../model/user';
 
 describe('USER TEST', () => {
-    const user = new User(1, GenderENU.female, 35, 182, 80, ActivityENU.sedentary);
+    const user = newUser(
+        {
+            id: 1,
+            gender: GenderENU.female,
+            age: 35,
+            height: 182,
+            weight: 80,
+            activity: ActivityENU.sedentary,
+        }
+    );
 
     describe('New user', () => {
         test('User type', () => {
@@ -10,7 +20,7 @@ describe('USER TEST', () => {
                 typeof user
             ).toBe('object');
         });
-    })
+    });
 
     describe('Getters', () => {
         test('Get gender', () => {
@@ -36,12 +46,12 @@ describe('USER TEST', () => {
 
     describe('Setters', () => {
         test('Set weight', () => {
-            user.setWeight(84)
+            user.setWeight(84);
             expect(user.weight).toBe(84);
         });
 
         test('Set activity', () => {
-            user.setActivity(ActivityENU.moderate)
+            user.setActivity(ActivityENU.moderate);
             expect(user.activity).toBe(1.550);
         });
     });

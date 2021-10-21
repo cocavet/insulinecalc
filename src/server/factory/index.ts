@@ -1,7 +1,12 @@
-import User from "../model/user";
+import Meal from '../model/meal';
+import User from '../model/user';
 
-export function getUser(params) {
-    const { gender, age, height, weight, activity } = params;
+export function newUser(params: any) {
+    const { id, gender, age, height, weight, activity, numMeals} = params;
 
-    return new User(gender, age, height, weight, activity);
+    return new User(id, gender, age, height, weight, activity, numMeals);
+}
+
+export function newMeal(user: any) {
+    return new Meal(user);
 }

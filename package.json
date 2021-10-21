@@ -26,6 +26,7 @@
     "typescript": "^3.3.3"
   },
   "dependencies": {
+    "axios": "^0.23.0",
     "lodash": "^4.17.21",
     "ts-jest": "^27.0.7"
   }

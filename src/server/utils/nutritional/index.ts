@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export function calcDailyNutritional(params): NutritionalTYP {
+export function calcDailyNutritional(params): INutritional {
     const dailyKcal = getDailyKcal(params);
     const macronutrients = calcRandomMacronutrients(dailyKcal);
 
@@ -9,7 +9,7 @@ export function calcDailyNutritional(params): NutritionalTYP {
         Proteins: macronutrients.Proteins,
         Fats: macronutrients.Fats,
         CHO: macronutrients.CHO,
-    }
+    };
 }
 
 function getDailyKcal(params): number {
@@ -17,10 +17,10 @@ function getDailyKcal(params): number {
 
     return gender
         ? ((10 * weight) + (6.25 * height) - (5 * age) - 161) * activity
-        : ((10 * weight) + (6.25 * height) - (5 * age) + 5) * activity
+        : ((10 * weight) + (6.25 * height) - (5 * age) + 5) * activity;
 }
 
-function calcRandomMacronutrients(dailyKcal): MacronutrientsTYP {
+function calcRandomMacronutrients(dailyKcal): IMacronutrients {
     const proteins = getDailyProteins(dailyKcal);
     const CHO = getDailyCHO(dailyKcal);
     const fats = getDailyFats(dailyKcal, proteins + CHO);
@@ -28,8 +28,8 @@ function calcRandomMacronutrients(dailyKcal): MacronutrientsTYP {
     return {
         Proteins: proteins,
         Fats: fats,
-        CHO: CHO
-    }
+        CHO,
+    };
 }
 
 function getDailyProteins(dailyKcal: number): number {

@@ -1,12 +1,12 @@
-type NutritionalTYP = {
-    Kcal
-    Proteins
-    Fats
-    CHO
+interface INutritional {
+    Kcal: number;
+    Proteins: number;
+    Fats: number;
+    CHO: number;
 }
 
-type MacronutrientsTYP = {
-    Proteins
-    Fats
-    CHO
+interface IMacronutrients {
+    Proteins: number;
+    Fats: number;
+    CHO: number;
 }

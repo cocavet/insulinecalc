@@ -1,3 +1,4 @@
+import { MealTypeENU } from '../../contracts/meal';
 import { ActivityENU, GenderENU } from '../../contracts/user';
 import { newMeal, newUser } from '../../factory';
 
@@ -24,7 +25,7 @@ describe('MEAL TEST', () => {
 
     describe('Getters', () => {
         test('Get Meal', async () => {
-            const getMeal = await meal.getMeal();
+            const getMeal = await meal.getMeal('', MealTypeENU.Breakfast);
 
             expect(getMeal).toHaveProperty('Name');
             expect(getMeal).toHaveProperty('Kcal');

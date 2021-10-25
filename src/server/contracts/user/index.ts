@@ -1,3 +1,5 @@
+import { INutritional } from '../nutritional';
+
 export interface IUser {
     id: number;
     gender: GenderENU;

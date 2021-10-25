@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { IMacronutrients, INutritional } from '../../contracts/nutritional';
 
 export function calcDailyNutritional(params): INutritional {
     const dailyKcal = getDailyKcal(params);
@@ -42,4 +43,8 @@ function getDailyCHO(dailyKcal: number): number {
 
 function getDailyFats(dailyKcal: number, proteinsAndCHO: number): number {
     return (dailyKcal * (100 - proteinsAndCHO)) / 100;
+}
+
+function divideKcal() {
+
 }

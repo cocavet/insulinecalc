@@ -1,28 +1,29 @@
-import axios from 'axios';
 import _ from 'lodash';
-import { EDAMAME_BASE_URL } from '../../config';
-import { IMeal, IOneMeal } from '../../contracts/meal';
+import { Dist3MealsENU, Dist5MealsENU, IMeal, IOneMeal } from '../../contracts/meal';
+import { INutritional } from '../../contracts/nutritional';
+import { getEDAMAMRecipeSE } from '../../service/edamame';
 import User from '../user';
 
 class Meal implements IMeal {
     public user: User;
+    public nutritional: INutritional;
 
     constructor(user) {
         this.user = user;
+        this.nutritional = this.user.getDailyNutritional();
     }
 
-    public async getMeal(): Promise<IOneMeal> {
-        const meal = await axios.get(EDAMAME_BASE_URL('chicken', this.user.getDailyNutritional().Kcal), {});
+    public async getMeal(queryRecipe: string, mealType: string): Promise<IOneMeal> {
+        return await getEDAMAMRecipeSE(queryRecipe, this.getDistributionMeal(mealType), mealType);
+    }
 
-        console.log(meal.data['hits'][_.random(meal.data['hits'].length)]);
+    public getDistributionMeal(mealType: string): number {
+        const numMeals = this.user.numMeals;
+        const kcals = this.nutritional.Kcal;
 
-        return {
-            Name: 0,
-            Kcal: 0,
-            Proteins: 0,
-            Fats: 0,
-            CHO: 0,
-        };
+        return numMeals === 3
+            ? (kcals * Dist3MealsENU[mealType]) / 100
+            : (kcals * Dist5MealsENU[mealType]) / 100 ;
     }
 }
 

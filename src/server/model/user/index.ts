@@ -1,3 +1,4 @@
+import { INutritional } from '../../contracts/nutritional';
 import { ActivityENU, GenderENU, IUser, NumMealsENU } from '../../contracts/user';
 import { calcDailyNutritional } from '../../utils/nutritional';
 

@@ -11,6 +11,7 @@ describe('USER TEST', () => {
             height: 182,
             weight: 80,
             activity: ActivityENU.sedentary,
+            numMeals: 3,
         }
     );
 

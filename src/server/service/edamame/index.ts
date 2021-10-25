@@ -1,7 +1,7 @@
 import axios from 'axios';
 import _ from 'lodash';
-import { EDAMAM_BASE_URL } from '../../config';
 import { IOneMeal } from '../../contracts/meal';
+import { EDAMAM_BASE_URL } from '../../router';
 
 const DISTRIBUTION_RANGE = 150;
 

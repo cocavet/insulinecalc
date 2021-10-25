@@ -11,6 +11,7 @@ describe('MEAL TEST', () => {
             height: 182,
             weight: 80,
             activity: ActivityENU.sedentary,
+            numMeals: 3,
         }
     );
     const meal = newMeal(user);

@@ -1,4 +1,5 @@
 import Meal from '../model/meal';
+import Plan from '../model/plan';
 import User from '../model/user';
 
 export function newUser(params: any) {
@@ -9,4 +10,8 @@ export function newUser(params: any) {
 
 export function newMeal(user: any) {
     return new Meal(user);
+}
+
+export function newPlan(user: any, days: number) {
+    return new Plan(user, days);
 }

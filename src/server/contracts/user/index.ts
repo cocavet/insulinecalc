@@ -8,8 +8,12 @@ export interface IUser {
     weight: number;
     activity: ActivityENU;
     numMeals: NumMealsENU;
+    sport: number;
+    stress: number;
 
     setActivity(activity: ActivityENU): void;
+    setSport(sport: number): void;
+    setStress(stress: number): void;
     setWeight(weight: number): void;
     getDailyNutritional(): INutritional;
 }

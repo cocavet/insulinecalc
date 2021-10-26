@@ -2,10 +2,22 @@ import { IUser } from '../user';
 
 export interface IController {
     app: any;
-
-    init();
 }
 
 export interface IUserController {
+    init();
     getUser(): void;
+}
+export interface IMealController {
+    init();
+    getMeal(): void;
+}
+export interface IPlanController {
+    init();
+    getPlan(): void;
+}
+
+
+export enum MessagesENU {
+    Error = 'Ups! this is an error',
 }

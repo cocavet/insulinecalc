@@ -10,9 +10,11 @@ class User implements IUser {
     public weight: number;
     public activity: ActivityENU;
     public numMeals: NumMealsENU;
+    public sport: number;
+    public stress: number;
 
     constructor(id: number, gender: GenderENU, age: number, height: number,
-                weight: number, activity: ActivityENU, numMeals: NumMealsENU ) {
+                weight: number, activity: ActivityENU, numMeals: NumMealsENU, sport: number, stress: number ) {
         this.id = id;
         this.gender = gender;
         this.age = age;
@@ -20,6 +22,16 @@ class User implements IUser {
         this.weight = weight;
         this.activity = activity;
         this.numMeals = numMeals;
+        this.sport = sport;
+        this.stress = stress;
+    }
+
+    public setSport(sport: number): void {
+        this.sport = sport;
+    }
+
+    public setStress(stress: number): void {
+        this.stress = stress;
     }
 
     public setActivity(activity: ActivityENU): void {

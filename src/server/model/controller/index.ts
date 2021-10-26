@@ -1,24 +1,13 @@
 import { IController, IUserController } from '../../contracts/Controller';
+import { newUser } from '../../factory';
+import { GET_USER } from '../../router';
 
-class Controller implements IController, IUserController {
+class Controller implements IController {
     public app: any;
 
     constructor(app: any) {
         this.app = app;
     }
-
-    public init() {
-        this.getUser();
-    }
-
-    public getUser(): void {
-        try {
-            this.app.get(, );
-        } catch (error) {
-
-        }
-    }
-
 }
 
 export default Controller;

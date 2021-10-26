@@ -25,6 +25,7 @@ export async function getEDAMAMRecipeSE(
             Proteins: randomMeal.recipe.totalNutrients.PROCNT.quantity / randomMeal.recipe.yield,
             Fats: randomMeal.recipe.totalNutrients.FAT.quantity / randomMeal.recipe.yield,
             CHO: randomMeal.recipe.totalNutrients.CHOCDF.quantity / randomMeal.recipe.yield,
+            totalWeight: randomMeal.recipe.totalWeight / randomMeal.recipe.yield,
         }
         : null;
 }

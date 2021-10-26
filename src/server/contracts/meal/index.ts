@@ -15,6 +15,7 @@ export interface IOneMeal {
     Proteins: number;
     Fats: number;
     CHO: number;
+    totalWeight: number;
 }
 
 export enum MealTypeENU {

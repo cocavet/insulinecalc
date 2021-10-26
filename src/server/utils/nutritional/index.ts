@@ -42,9 +42,5 @@ function getDailyCHO(dailyKcal: number): number {
 }
 
 function getDailyFats(dailyKcal: number, proteinsAndCHO: number): number {
-    return (dailyKcal * (100 - proteinsAndCHO)) / 100;
-}
-
-function divideKcal() {
-
+    return dailyKcal - proteinsAndCHO;
 }

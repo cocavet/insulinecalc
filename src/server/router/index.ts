@@ -5,3 +5,4 @@ export const EDAMAM_BASE_URL =
 export const GET_USER = '/get/user';
 export const GET_PLAN = '/get/plan/:days';
 export const GET_MEAL = '/get/meal/:query/:mealType';
+export const GET_PREDICTION = '/get/prediction';

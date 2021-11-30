@@ -17,6 +17,10 @@ export interface IPlanController {
     getPlan(): void;
 }
 
+export interface IPredictController {
+    init();
+    getPrediction(): void;
+}
 
 export enum MessagesENU {
     Error = 'Ups! this is an error',

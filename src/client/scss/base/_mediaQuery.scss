@@ -1,0 +1,17 @@
+$mediaSizes: (
+    xl:'1500',
+    l:'1200',
+    m:'1100',
+    ms:'860',
+    s:'720',
+);
+
+$mediaQuery: (s:'only screen and (max-width:'+map-get($mediaSizes, s)+'px)',
+    m:'only screen and (min-width:'+(map-get($mediaSizes, ms))+'px) and (max-width:'+map-get($mediaSizes, m)+'px)',
+    ms:'only screen and (min-width:'+(map-get($mediaSizes, s))+'px) and (max-width:'+map-get($mediaSizes, ms)+'px)',
+    l:'only screen and (min-width:'+(map-get($mediaSizes, m))+'px) and (max-width:'+map-get($mediaSizes, l)+'px)',
+    xl:'only screen and (min-width:'+(map-get($mediaSizes, l))+'px)',
+    msDown:'only screen and (max-width:'+map-get($mediaSizes, ms)+'px)',
+    mDown: 'only screen and (min-width: 0) and (max-width:'+map-get($mediaSizes, m)+'px)',
+    sUp:'only screen and (min-width:'+map-get($mediaSizes, s)+'px)',
+);

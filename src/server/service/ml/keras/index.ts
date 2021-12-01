@@ -1,5 +1,5 @@
 import * as tf from '@tensorflow/tfjs-node';
-import { plot, Plot } from 'nodeplotlib';
+import { plotData } from '../../../utils/common';
 
 export async function doPredict() {
     // Build and compile model.
@@ -19,13 +19,10 @@ export async function doPredict() {
     const ys = tf.tensor1d([-40, 14, 46, 59, 72, 100]);
 
     // Train model with fit().
-    const history = await model.fit(xs, ys, { epochs: 1000 });
+    const history = await model.fit(xs, ys, { epochs: 2000 });
 
-    console.log(history);
-
-    const data: Plot[] = [{ x: history.epoch, y: history.history.loss }];
-    plot(data);
+    plotData(history.epoch, history.history.loss as number[]);
 
     // Run inference with predict().
-    return await (model.predict(tf.tensor1d([100.0])) as tf.Tensor).data();
+    return await (await (model.predict(tf.tensor1d([100.0])) as tf.Tensor).data()).toString();
 }

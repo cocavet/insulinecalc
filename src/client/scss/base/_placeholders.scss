@@ -1,0 +1,255 @@
+%h1 {
+    @include text(h1, primary, 400, inherit, center);
+
+    line-height: 40px;
+}
+
+%h2 {
+    @include text(h2, primary, 400, inherit, center);
+
+    margin-bottom: 40px;
+}
+
+%h3 {
+    @include text(h3, primary, 600, inherit, left);
+
+    line-height: 38px;
+}
+
+%h4 {
+    @include text(h4, primary, 400, inherit, left);
+
+    line-height: 38px;
+}
+
+%text--big {
+    @include text(textBig, primary, 400, inherit, left);
+
+    line-height: 40px;
+}
+
+%text--semiBig {
+    @include text(textSemiBig, primary, 400, uppercase, center);
+
+    line-height: 40px;
+}
+
+%text {
+    @include text(text, primary, 400, inherit, left);
+
+    line-height: 27px;
+}
+
+%section {
+    padding: 65px 0;
+}
+
+%input {
+    @include text(text, primary, 400, inherit, left);
+
+    appearance: none;
+    width: 100%;
+    font-family: 'Source Sans Pro';
+    border: solid 1px getColor(border);
+    padding: 8px 12px;
+    outline: none;
+    border-radius: 4px;
+    font-size: getFontSize(text);
+    margin-bottom: 15px;
+    color: getColor(black);
+
+    &:focus{
+        border: solid 1px getColor(primary);
+    }
+
+    &:disabled{
+        color: getColor(grey);
+    }
+
+    @media #{getMediaQuery(s)} {
+        padding: 15px 12px;
+        font-size: 17px !important;
+     }
+}
+
+%button {
+    @include text(button, primary, 600, inherit, left);
+
+    width: auto;
+    padding: 8px 20px;
+    border-radius: 4px;
+    background: getColor(white);
+    color: getColor(black);
+    border: solid 1px getColor(border);
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+
+    &:hover{
+        color: getColor(primary) !important;
+        border: solid 1px getColor(primary) !important;
+    }
+
+    @media #{getMediaQuery(s)} {
+       font-size: 13px;
+       padding: 12px 15px;
+       letter-spacing: .2px;
+       flex: none;
+    }
+
+    &:disabled{
+        color: getColor(grey) !important;
+        background: getColor(backgroundAside) !important;
+        border: none !important;
+        pointer-events: none;
+        cursor: default !important;
+
+        &:hover{
+            color: getColor(grey) !important;
+            background: getColor(backgroundAside) !important;
+            border: none !important;
+        }
+    }
+
+    &.--delete{
+        background: getColor(white);
+        color: getColor(error);
+        border: solid 1px getColor(error);
+
+        @extend %brightnessBtns;
+    }
+
+    &.--primaryBorder{
+        background: getColor(white);
+        color: getColor(primary);
+        border: solid 1px getColor(primary);
+
+        @extend %brightnessBtns;
+    }
+
+    &.--primary{
+        background: getColor(primary);
+        color: getColor(white);
+        border: solid 1px getColor(primary);
+
+        &:hover{
+            color: getColor(white) !important;
+        }
+
+       @extend %brightnessBtns;
+    }
+
+    @extend %brightnessBtns;
+
+    filter: brightness(1);
+}
+
+%label{
+    font-size: getFontSize(label) !important;
+    margin-bottom: 5px;
+    display: block;
+    letter-spacing: .3px;
+}
+
+%deleteButton {
+    border-radius: 50%;
+    background: getColor(white);
+    color: getColor(black);
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    box-shadow: getGeneric(box-shadow);
+    position: absolute;
+    right: -12px;
+    top: 7px;
+    display: none;
+
+    .iconButton__icon {
+        margin: 0;
+    }
+}
+
+%brightnessBtns {
+    &:hover {
+        filter: brightness(1.02);
+    }
+
+    &:active {
+        filter: brightness(.98);
+    }
+}
+
+%select {
+    @extend %input;
+
+    @include text(text, black, 400, inherit, left);
+
+    appearance: none;
+    padding: 8px 40px 8px 12px;
+    background: url('/images/arrow.svg') no-repeat;
+    background-position: calc(100% - 10px);
+    width: 100%;
+
+    &.--multiple {
+        background: getColor(white);
+        padding: 8px 12px;
+
+        &:focus{
+            height: 100%;
+        }
+    }
+
+    @media #{getMediaQuery(s)} {
+        padding: 15px 12px;
+        font-size: 17px !important;
+     }
+}
+
+%floatingButtons {
+    display: flex;
+    justify-content: right;
+    flex-direction: row-reverse;
+    position: fixed;
+    top: 55px;
+    width: calc(100% - 266px);
+    right: 0;
+    background: getColor(white);
+    padding: 8px 20px;
+    z-index: 3;
+    border-bottom: solid 1px getColor(border);
+
+    @media #{getMediaQuery(s)} {
+        padding: 8px 5px;
+     }
+
+    .iconButton{
+        margin-left: 5px;
+    }
+}
+
+%advisor{
+    background: getColor(infoBox);
+    padding: 15px 20px;
+    border-radius: getGeneric(border-radius);
+    width: 100%;
+    font-size: 14px;
+    color: getColor(black);
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+
+%errors{
+    background: getColor(errorSoft);
+    color: getColor(error);
+    line-height: 20px;
+    padding: 20px 20px 20px 40px;
+    font-size: 15px;
+    border-radius: 10px;
+    list-style: disc;
+    width: 100%;
+}

@@ -1,0 +1,86 @@
+@mixin text($font-size, $color, $font-weight, $text-transform: inherit, $text-align: left){
+    font-size: getFontSize($font-size);
+    font-weight: $font-weight;
+    color: getColor($color);
+    text-transform: $text-transform;
+    text-align: $text-align;
+    font-family: 'Source Sans Pro';
+}
+
+@mixin border($position, $size, $color) {
+    @if $position=='' {
+        border: solid $size+px getColor($color);
+    }
+
+    @else {
+        border-#{$position}: solid $size+px getColor($color);
+    }
+}
+
+@mixin btn($text, $bg, $color, $bg__hover, $color__hover) {
+    @include text($text, $color, 600, capitalize, inherit);
+
+    display: inline-block;
+    padding: 12px 30px;
+    background: getColor($bg);
+    border-radius: 5px;
+    margin: 25px 0 0;
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+        @include text($text, $color__hover, 600, capitalize, inherit);
+
+        background: getColor($bg__hover);
+    }
+}
+
+@mixin modal($height, $type:0) {
+    @if ($type==0) {
+        width: 600px;
+        height: $height+px;
+        top: 15%;
+        margin-left: -(600/2)+px;
+        position: fixed;
+        left: -100%;
+        z-index: 100;
+        background: getColor(white);
+        padding: 40px;
+        border-radius: 5px;
+    }
+
+    @else {
+        width: 770px;
+        height: $height;
+        margin-top: $type+px;
+        max-height: 1200px;
+        top: 0;
+        margin-left: -(770/2)+px;
+    }
+}
+
+@mixin label() {
+    @include text(small, label, 600);
+
+    margin-bottom: 3px;
+    letter-spacing: 0;
+    display: block;
+}
+
+@mixin input() {
+    @include text(h3, black, 400);
+
+    width: 100%;
+    padding: 12px 15px;
+    letter-spacing: 0.3px;
+    border-radius: getGeneric(border-radius);
+    border: solid 1px getColor(borderInput);
+    display: block;
+
+    &:focus {
+        border: solid 1px getColor(primary);
+        outline: 0;
+        box-shadow: 0 0 0 0.17647rem getColor(primarySoft);
+    }
+}

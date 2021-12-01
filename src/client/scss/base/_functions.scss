@@ -1,0 +1,19 @@
+@function getColor($color) {
+    @return map-get($colors, $color);
+}
+
+@function getFontSize($size) {
+    @return map-get($fontSizes, $size);
+}
+
+@function getGeneric($el) {
+    @return map-get($generics, $el);
+}
+
+@function getMediaQuery($el) {
+    @return map-get($mediaQuery, $el);
+}
+
+@function getStatusColor($el) {
+    @return map-get($dateColors, $el);
+}

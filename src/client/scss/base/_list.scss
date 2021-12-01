@@ -1,0 +1,47 @@
+$colors: (
+    white: #fff,
+    primary: #ff6161,
+    primaryLight: #927FE2,
+    textPrimary: #b9aaf5,
+    primaryDark: #6331e2,
+    primaryHover: #4b6b7a,
+    active: #f7f7f7,
+    border: #eceff1,
+    black: #25125E,
+    grey: #bbb,
+    darkGrey: #868196,
+    backgroundMain: #f8f9fb,
+    backgroundAside: #f4f5f6,
+    error: #ff3737,
+    errorSoft: #fff1f1,
+    success: #32cc77,
+    info: #ffae00,
+    infoBox: #FAE6FF,
+    blue: #5e64ff
+);
+
+$dateColors: (
+    blue: #5e64ff,
+    red: #fc5050,
+    green: #32cc77,
+    yellow: #fab802,
+    pink: #EEA9DF,
+    purple: #C096EE,
+    turquesa:#88E7E6,
+    orange:#F5A56F
+);
+
+$fontSizes: (h1: 30px,
+    h2: 25px,
+    h3: 17px,
+    h4: 23px,
+    text: 17px,
+    label: 13px,
+    button: 12px,
+    asideText: 14px,
+    textSemiBig: 18px,
+    textBig: 22px,
+    textSmall: 8px);
+
+$generics: (box-shadow: (0 1px 4px rgba(33,34,64, .16)),
+border-radius: 10px);

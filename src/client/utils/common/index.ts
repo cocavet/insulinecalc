@@ -1,1 +1,0 @@
-export const APP_SELECTOR = document.querySelector('.app');

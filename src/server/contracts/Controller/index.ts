@@ -7,6 +7,7 @@ export interface IController {
 export interface IUserController {
     init();
     getUser(): void;
+    getUserNutritional(): void;
 }
 export interface IMealController {
     init();

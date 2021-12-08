@@ -4,13 +4,11 @@ import { IPlan } from '../../contracts/plan';
 import Meal from '../meal';
 import User from '../user';
 
-class Plan extends Meal implements IPlan  {
+class Plan extends Meal implements IPlan {
     public user: User;
-    public planDays: number;
 
-    constructor(user: User, planDays: number) {
+    constructor(user: User) {
         super(user);
-        this.planDays = planDays;
     }
 
     public async getPlan(): Promise<IOneMeal[]> {
@@ -20,18 +18,18 @@ class Plan extends Meal implements IPlan  {
             : this.get5Distribute();
 
         for await (const el of distribution) {
-            mealArray.push( await this.getMeal('', el));
+            mealArray.push(await this.getMeal('', el));
         }
 
         return mealArray;
     }
 
     protected get3Distribute() {
-        return [ MealTypeENU.Breakfast,  MealTypeENU.Lunch,  MealTypeENU.Dinner];
+        return [MealTypeENU.Breakfast, MealTypeENU.Lunch, MealTypeENU.Dinner];
     }
 
     protected get5Distribute() {
-        return [ MealTypeENU.Breakfast,  MealTypeENU.Snack, MealTypeENU.Lunch,  MealTypeENU.Snack, MealTypeENU.Dinner];
+        return [MealTypeENU.Breakfast, MealTypeENU.Snack, MealTypeENU.Lunch, MealTypeENU.Snack, MealTypeENU.Dinner];
     }
 }
 

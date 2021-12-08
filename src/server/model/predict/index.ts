@@ -9,7 +9,7 @@ class Predict implements IPredict {
     }
 
     public getPredict() {
-        return doPredict();
+        return doPredict(this.tableMeals);
     }
 }
 

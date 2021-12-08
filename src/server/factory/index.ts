@@ -13,8 +13,8 @@ export function newMeal(user: any) {
     return new Meal(user);
 }
 
-export function newPlan(user: User, days: number) {
-    return new Plan(user, days);
+export function newPlan(user: User) {
+    return new Plan(user);
 }
 
 export function newPredict(tableMeals) {

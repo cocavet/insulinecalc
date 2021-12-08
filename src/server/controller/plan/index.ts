@@ -3,7 +3,7 @@ import { newPlan, newUser } from '../../factory';
 import Controller from '../../model/controller';
 import { GET_PLAN } from '../../router';
 
-class PlanCO extends Controller  implements IPlanController {
+class PlanCO extends Controller implements IPlanController {
     public init() {
         this.getPlan();
     }
@@ -12,9 +12,12 @@ class PlanCO extends Controller  implements IPlanController {
         this.app.post(GET_PLAN, async (req, res) => {
             try {
                 const user = newUser(req.body);
-                const plan = newPlan(user, req.params.days);
+                const plan = newPlan(user);
 
-                res.status(200).json({user, dailyNutritional: user.getDailyNutritional(), plan: await plan.getPlan()});
+                res.status(200).json({
+                    user, dailyNutritional: user.getDailyNutritional(),
+                    plan: await plan.getPlan(),
+                });
             } catch (error) {
                 res.status(500).json(MessagesENU.Error);
             }

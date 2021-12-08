@@ -1,5 +1,5 @@
 import { ActivityENU, GenderENU } from '../../contracts/user';
-import {newPlan, newUser } from '../../factory';
+import { newPlan, newUser } from '../../factory';
 
 describe('MEAL TEST', () => {
     const user = newUser(
@@ -16,7 +16,7 @@ describe('MEAL TEST', () => {
         }
     );
 
-    const plan =  newPlan(user, 7);
+    const plan = newPlan(user);
 
     describe('New Plan', () => {
         test('Plan type', () => {

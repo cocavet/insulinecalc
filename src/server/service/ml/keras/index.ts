@@ -1,7 +1,7 @@
 import * as tf from '@tensorflow/tfjs-node';
 import { plotData } from '../../../utils/common';
 
-export async function doPredict() {
+export async function doPredict(tables: any[]) {
     // Build and compile model.
     const model = tf.sequential();
     const optimizer = tf.train.adam(0.1);

@@ -1,5 +1,4 @@
-import { ActivityENU, GenderENU } from '../../contracts/user';
-import { newPredict, newUser } from '../../factory';
+import { newPredict } from '../../server/factory';
 
 describe('PREDICT TEST', () => {
     const predict = newPredict([1, 2, 3]);
@@ -14,7 +13,7 @@ describe('PREDICT TEST', () => {
 
     describe('Getters', () => {
         test('Get prediction', () => {
-            console.log(predict.getPredict());
+            // console.log(predict.getPredict());
         });
     });
 });

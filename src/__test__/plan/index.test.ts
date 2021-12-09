@@ -1,5 +1,5 @@
-import { ActivityENU, GenderENU } from '../../contracts/user';
-import { newPlan, newUser } from '../../factory';
+import { ActivityENU, GenderENU } from '../../server/contracts/user';
+import { newPlan, newUser } from '../../server/factory';
 
 describe('MEAL TEST', () => {
     const user = newUser(

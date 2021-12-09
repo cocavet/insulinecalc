@@ -10,11 +10,13 @@ export interface IUser {
     numMeals: NumMealsENU;
     sport: number;
     stress: number;
+    bloodGlucose: number;
 
     setActivity(activity: ActivityENU): void;
     setSport(sport: number): void;
     setStress(stress: number): void;
     setWeight(weight: number): void;
+    setbloodGlucose(bloodGlucose: number): void;
     getDailyNutritional(): INutritional;
 }
 

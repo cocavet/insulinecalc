@@ -16,11 +16,12 @@ export interface IOneMeal {
     Fats: number;
     CHO: number;
     totalWeight: number;
+    insulineDose: number
 }
 
 export enum MealTypeENU {
     Breakfast = 'Breakfast',
-    Snack  = 'Snack',
+    Snack = 'Snack',
     Lunch = 'Lunch',
     Dinner = 'Dinner',
 }

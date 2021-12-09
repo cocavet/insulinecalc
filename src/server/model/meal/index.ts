@@ -2,6 +2,7 @@ import _ from 'lodash';
 import { Dist3MealsENU, Dist5MealsENU, IMeal, IOneMeal } from '../../contracts/meal';
 import { INutritional } from '../../contracts/nutritional';
 import { getEDAMAMRecipeSE } from '../../service/edamame';
+import { calcInsulineDose } from '../../service/insulineDose';
 import User from '../user';
 
 class Meal implements IMeal {
@@ -14,7 +15,9 @@ class Meal implements IMeal {
     }
 
     public async getMeal(queryRecipe: string, mealType: string): Promise<IOneMeal> {
-        return await getEDAMAMRecipeSE(queryRecipe, this.getDistributionMeal(mealType), mealType);
+        const meal = await getEDAMAMRecipeSE(queryRecipe, this.getDistributionMeal(mealType), mealType);
+
+        return { ...meal, insulineDose: this.getInsulineDose(meal.CHO) };
     }
 
     public getDistributionMeal(mealType: string): number {
@@ -23,7 +26,11 @@ class Meal implements IMeal {
 
         return numMeals === 3
             ? (kcals * Dist3MealsENU[mealType]) / 100
-            : (kcals * Dist5MealsENU[mealType]) / 100 ;
+            : (kcals * Dist5MealsENU[mealType]) / 100;
+    }
+
+    protected getInsulineDose(CHOMeal: number) {
+        return calcInsulineDose(CHOMeal, this.user);
     }
 }
 

@@ -7,9 +7,9 @@ export function calcDailyNutritional(params): INutritional {
 
     return {
         Kcal: dailyKcal,
-        Proteins: macronutrients.Proteins,
-        Fats: macronutrients.Fats,
-        CHO: macronutrients.CHO,
+        Proteins: (macronutrients.Proteins / 4),
+        Fats: (macronutrients.Fats / dailyKcal) * 100,
+        CHO: macronutrients.CHO / 4,
     };
 }
 

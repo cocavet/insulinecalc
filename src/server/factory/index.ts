@@ -4,9 +4,9 @@ import Predict from '../model/predict';
 import User from '../model/user';
 
 export function newUser(params: any) {
-    const { id, gender, age, height, weight, activity, numMeals, sport, stress } = params;
+    const { id, gender, age, height, weight, activity, numMeals, sport, stress, bloodGlucose } = params;
 
-    return new User(id, gender, age, height, weight, activity, numMeals, sport, stress);
+    return new User(id, gender, age, height, weight, activity, numMeals, sport, stress, bloodGlucose);
 }
 
 export function newMeal(user: any) {

@@ -12,9 +12,12 @@ class User implements IUser {
     public numMeals: NumMealsENU;
     public sport: number;
     public stress: number;
+    public bloodGlucose: number;
 
     constructor(id: number, gender: GenderENU, age: number, height: number,
-                weight: number, activity: ActivityENU, numMeals: NumMealsENU, sport: number, stress: number ) {
+        weight: number, activity: ActivityENU, numMeals: NumMealsENU, sport: number,
+        stress: number, bloodGlucose: number) {
+
         this.id = id;
         this.gender = gender;
         this.age = age;
@@ -24,6 +27,11 @@ class User implements IUser {
         this.numMeals = numMeals;
         this.sport = sport;
         this.stress = stress;
+        this.bloodGlucose = bloodGlucose;
+    }
+
+    public setbloodGlucose(bloodGlucose: number): void {
+        throw new Error('Method not implemented.');
     }
 
     public setSport(sport: number): void {

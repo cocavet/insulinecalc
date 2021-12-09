@@ -1,6 +1,6 @@
-import { MealTypeENU } from '../../contracts/meal';
-import { ActivityENU, GenderENU } from '../../contracts/user';
-import { newMeal, newUser } from '../../factory';
+import { MealTypeENU } from '../../server/contracts/meal';
+import { ActivityENU, GenderENU } from '../../server/contracts/user';
+import { newMeal, newUser } from '../../server/factory';
 
 describe('MEAL TEST', () => {
     const user = newUser(

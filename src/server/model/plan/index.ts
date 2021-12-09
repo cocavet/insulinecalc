@@ -7,6 +7,8 @@ import User from '../user';
 class Plan extends Meal implements IPlan {
     public user: User;
 
+
+
     constructor(user: User) {
         super(user);
     }

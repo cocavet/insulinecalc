@@ -17,7 +17,7 @@ class Meal implements IMeal {
     public async getMeal(queryRecipe: string, mealType: string): Promise<IOneMeal> {
         const meal = await getEDAMAMRecipeSE(queryRecipe, this.getDistributionMeal(mealType), mealType);
 
-        return { ...meal, insulineDose: this.getInsulineDose(meal.CHO) };
+        if (meal) { return { ...meal, insulineDose: this.getInsulineDose(meal?.CHO) }; }
     }
 
     public getDistributionMeal(mealType: string): number {

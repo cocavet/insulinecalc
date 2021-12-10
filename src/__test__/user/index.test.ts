@@ -15,6 +15,7 @@ describe('USER TEST', () => {
             sport: 120,
             stress: 65,
             bloodGlucose: 220,
+            bloodGlucoseGoal: 120,
         }
     );
 

@@ -11,6 +11,7 @@ export interface IUser {
     sport: number;
     stress: number;
     bloodGlucose: number;
+    bloodGlucoseGoal: number;
 
     setActivity(activity: ActivityENU): void;
     setSport(sport: number): void;

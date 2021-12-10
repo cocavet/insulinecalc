@@ -1,7 +1,10 @@
 import User from '../../model/user';
 
 export interface IPredict {
-    tableMeals: User;
+    model: any;
+    simulatedMeals: any[];
+    insulineDoses: any[];
 
     getPredict();
+    trainModel();
 }

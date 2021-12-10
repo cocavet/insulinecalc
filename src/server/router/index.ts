@@ -7,3 +7,4 @@ export const GET_NUTRITIONAL = '/get/dailyNutritional';
 export const GET_PLAN = '/get/plan';
 export const GET_MEAL = '/get/meal/:query/:mealType';
 export const GET_PREDICTION = '/get/prediction';
+export const GET_MODEL = '/get/model';

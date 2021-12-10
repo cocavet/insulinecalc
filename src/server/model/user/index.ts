@@ -1,3 +1,5 @@
+import _ from 'lodash';
+import random from 'random';
 import { INutritional } from '../../contracts/nutritional';
 import { ActivityENU, GenderENU, IUser, NumMealsENU } from '../../contracts/user';
 import { calcDailyNutritional } from '../../utils/nutritional';
@@ -13,6 +15,7 @@ class User implements IUser {
     public sport: number;
     public stress: number;
     public bloodGlucose: number;
+    public bloodGlucoseGoal: number;
 
     constructor(id: number, gender: GenderENU, age: number, height: number,
         weight: number, activity: ActivityENU, numMeals: NumMealsENU, sport: number,
@@ -28,10 +31,11 @@ class User implements IUser {
         this.sport = sport;
         this.stress = stress;
         this.bloodGlucose = bloodGlucose;
+        this.bloodGlucoseGoal = _.random(80, 125);
     }
 
-    public setbloodGlucose(bloodGlucose: number): void {
-        throw new Error('Method not implemented.');
+    public setbloodGlucose(bloodGlucoseGoal: number): void {
+        this.bloodGlucoseGoal = bloodGlucoseGoal;
     }
 
     public setSport(sport: number): void {

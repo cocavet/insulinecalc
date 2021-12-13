@@ -5,19 +5,21 @@ class Predict implements IPredict {
     public simulatedMeals: any[];
     public insulineDoses: any[];
     public model: any;
+    public userId: string;
 
-    constructor(simulatedMeals: any[], insulineDoses: any[], model: any) {
+    constructor(simulatedMeals: any[], insulineDoses: any[], model: any, userId: string) {
         this.model = model;
         this.simulatedMeals = simulatedMeals;
         this.insulineDoses = insulineDoses;
+        this.userId = userId;
     }
 
-    public trainModel() {
-        return trainingModel(this.simulatedMeals, this.insulineDoses);
+    public async trainModel() {
+        return await trainingModel(this.simulatedMeals, this.insulineDoses, this.userId);
     }
 
     public getPredict() {
-        return doPredict(this.model);
+        return doPredict(this.simulatedMeals, this.userId);
     }
 }
 

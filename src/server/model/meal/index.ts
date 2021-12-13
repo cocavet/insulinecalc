@@ -14,8 +14,14 @@ class Meal implements IMeal {
         this.nutritional = this.user.getDailyNutritional();
     }
 
-    public async getMeal(queryRecipe: string, mealType: string): Promise<IOneMeal> {
-        const meal = await getEDAMAMRecipeSE(queryRecipe, this.getDistributionMeal(mealType), mealType);
+    public async getMeal(queryRecipe: string, mealType: string, ownDistribution = null): Promise<IOneMeal> {
+        const meal = await getEDAMAMRecipeSE(
+            queryRecipe,
+            ownDistribution
+                ? ownDistribution
+                : this.getDistributionMeal(mealType),
+            mealType
+        );
 
         if (meal) { return { ...meal, insulineDose: this.getInsulineDose(meal?.CHO) }; }
     }

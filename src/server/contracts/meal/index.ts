@@ -5,7 +5,7 @@ export interface IMeal {
     user: User;
     nutritional: INutritional;
 
-    getMeal(queryRecipe: string, mealType: string): Promise<IOneMeal>;
+    getMeal(queryRecipe: string, mealType: string, ownDistribution: null | number): Promise<IOneMeal>;
     getDistributionMeal(mealType: string): number;
 }
 

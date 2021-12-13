@@ -11,18 +11,24 @@ export function newUser(params: any) {
         numMeals, sport, stress, bloodGlucose);
 }
 
-export function newMeal(user: any) {
-    return new Meal(user);
+export function newMeal(user: any, createNewUser = false) {
+    let nUser: any = user;
+
+    if (createNewUser) {
+        nUser = newUser(user);
+    }
+
+    return new Meal(nUser);
 }
 
 export function newPlan(user: User) {
     return new Plan(user);
 }
 
-export function newModel(simulatedMeals: any[], insulineDoses: any[]) {
-    return new Predict(simulatedMeals, insulineDoses, null);
+export function newModel(simulatedMeals: any[], insulineDoses: any[], userId: string) {
+    return new Predict(simulatedMeals, insulineDoses, null, userId);
 }
 
-export function newPredict(model) {
-    return new Predict([], [], model);
+export function newPredict(data: any[], userId: string) {
+    return new Predict(data, [], null, userId);
 }

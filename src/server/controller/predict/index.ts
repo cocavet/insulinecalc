@@ -12,7 +12,8 @@ class PredictCO extends Controller implements IPredictController {
     public getModel(): void {
         this.app.post(GET_MODEL, async (req, res) => {
             try {
-                res.status(200).json(await newModel(req.body.simulatedMeals, req.body.insulineDoses).trainModel());
+                res.status(200).json(await newModel(req.body.simulatedMeals,
+                    req.body.insulineDoses, req.body.userId).trainModel());
             } catch (error) {
                 res.status(500).json(MessagesENU.Error);
             }
@@ -22,7 +23,7 @@ class PredictCO extends Controller implements IPredictController {
     public getPrediction(): void {
         this.app.post(GET_PREDICTION, async (req, res) => {
             try {
-                res.status(200).json(await newPredict(req.body).getPredict());
+                res.status(200).json(await newPredict(req.body.data, req.body.userId).getPredict());
             } catch (error) {
                 res.status(500).json(MessagesENU.Error);
             }

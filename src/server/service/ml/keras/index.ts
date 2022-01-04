@@ -4,7 +4,7 @@ import { plotData } from '../../../utils/common';
 export async function trainingModel(simulatedMeals: any[], insulineDoses: any[], userId: string) {
     try {
         const model = tf.sequential();
-        const optimizer = tf.train.adam(0.1);
+        const optimizer = tf.train.adam(0.05);
 
         model.add(tf.layers.dense({ units: 1, inputShape: [14] }));
         model.compile(

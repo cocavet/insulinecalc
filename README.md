@@ -31,7 +31,7 @@ Body (JSON format)
 
 Do request
 
-    http://localhost:4321/get/plan/7
+    http://localhost:4321/get/plan
 
 ## Tests
 To do application test, open your terminal and run

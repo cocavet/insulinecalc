@@ -7,6 +7,7 @@ export interface IMeal {
 
     getMeal(queryRecipe: string, mealType: string, ownDistribution: null | number): Promise<IOneMeal>;
     getDistributionMeal(mealType: string): number;
+    getInsulineDose(CHOMeal: number): number;
 }
 
 export interface IOneMeal {

@@ -1,15 +1,17 @@
 import _ from 'lodash';
 import { IMacronutrients, INutritional } from '../../contracts/nutritional';
 
+const KCAL_TO_GR = 0.129598;
+
 export function calcDailyNutritional(params): INutritional {
     const dailyKcal = getDailyKcal(params);
     const macronutrients = calcRandomMacronutrients(dailyKcal);
 
     return {
         Kcal: dailyKcal,
-        Proteins: (macronutrients.Proteins / 4),
-        Fats: (macronutrients.Fats / dailyKcal) * 100,
-        CHO: macronutrients.CHO / 4,
+        Proteins: (macronutrients.Proteins * KCAL_TO_GR),
+        Fats: (macronutrients.Fats) * KCAL_TO_GR,
+        CHO: macronutrients.CHO * KCAL_TO_GR,
     };
 }
 

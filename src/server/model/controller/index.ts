@@ -1,4 +1,4 @@
-import { IController, IUserController } from '../../contracts/Controller';
+import { IController } from '../../contracts/Controller';
 
 class Controller implements IController {
     public app: any;

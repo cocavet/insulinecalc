@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import random from 'random';
 import { INutritional } from '../../contracts/nutritional';
 import { ActivityENU, GenderENU, IUser, NumMealsENU } from '../../contracts/user';
 import { calcDailyNutritional } from '../../utils/nutritional';
@@ -18,8 +17,8 @@ class User implements IUser {
     public bloodGlucoseGoal: number;
 
     constructor(id: number, gender: GenderENU, age: number, height: number,
-        weight: number, activity: ActivityENU, numMeals: NumMealsENU, sport: number,
-        stress: number, bloodGlucose: number) {
+                weight: number, activity: ActivityENU, numMeals: NumMealsENU, sport: number,
+                stress: number, bloodGlucose: number) {
 
         this.id = id;
         this.gender = gender;

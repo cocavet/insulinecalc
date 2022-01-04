@@ -35,7 +35,7 @@ class Meal implements IMeal {
             : (kcals * Dist5MealsENU[mealType]) / 100;
     }
 
-    protected getInsulineDose(CHOMeal: number) {
+    public getInsulineDose(CHOMeal: number): number {
         return calcInsulineDose(CHOMeal, this.user);
     }
 }

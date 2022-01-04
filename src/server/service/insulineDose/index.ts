@@ -5,7 +5,6 @@ export function calcInsulineDose(CHOMeal: number, user: User): number {
     if (!CHOMeal) { return null; }
 
     const TDI = totalDailyInsulineDose(user);
-    console.log(CHOMeal, TDI);
     const CHORatio = CHOCoverageRatio(TDI);
     const CHODose = CHOMeal / CHORatio;
     const bloodGlucoseDose = bloodGlucoseCorrectionDose(user, TDI);

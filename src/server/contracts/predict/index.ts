@@ -1,11 +1,10 @@
 import User from '../../model/user';
 
 export interface IPredict {
-    model: any;
     simulatedMeals: any[];
     insulineDoses: any[];
     userId: string;
 
-    getPredict();
-    trainModel();
+    trainModel(): Promise<boolean>;
+    getPredict(): Promise<number | boolean>;
 }

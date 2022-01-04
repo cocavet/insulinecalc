@@ -26,9 +26,9 @@ export function newPlan(user: User) {
 }
 
 export function newModel(simulatedMeals: any[], insulineDoses: any[], userId: string) {
-    return new Predict(simulatedMeals, insulineDoses, null, userId);
+    return new Predict(simulatedMeals, insulineDoses, userId);
 }
 
 export function newPredict(data: any[], userId: string) {
-    return new Predict(data, [], null, userId);
+    return new Predict(data, [], userId);
 }

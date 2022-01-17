@@ -8,3 +8,7 @@ export interface IPredict {
     trainModel(): Promise<boolean>;
     getPredict(): Promise<number | boolean>;
 }
+export interface IPrepareData {
+    train: any;
+    test: any;
+}
